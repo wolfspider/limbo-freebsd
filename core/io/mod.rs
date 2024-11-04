@@ -139,6 +139,11 @@ impl Buffer {
 }
 
 cfg_block! {
+    #[cfg(target_os = "freebsd")] {
+        mod freebsd;
+        pub use freebsd::FreeBSDIO as PlatformIO;
+    }
+
     #[cfg(target_os = "linux")] {
         mod linux;
         pub use linux::LinuxIO as PlatformIO;
@@ -154,7 +159,7 @@ cfg_block! {
         pub use windows::WindowsIO as PlatformIO;
     }
 
-    #[cfg(not(any(target_os = "linux", target_os = "macos", target_os = "windows")))] {
+    #[cfg(not(any(target_os = "freebsd", target_os = "linux", target_os = "macos", target_os = "windows")))] {
         mod generic;
         pub use generic::GenericIO as PlatformIO;
     }

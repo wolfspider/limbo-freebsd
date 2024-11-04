@@ -1131,6 +1131,8 @@ dependencies = [
  "libc",
  "log",
  "mimalloc",
+ "mio",
+ "mio-aio",
  "mockall",
  "nix 0.29.0",
  "pest",
@@ -1239,6 +1241,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "mio"
+version = "0.8.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a4a650543ca06a924e8b371db273b2756685faae30f8487da1b56505a8f78b0c"
+dependencies = [
+ "libc",
+ "log",
+ "wasi",
+ "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "mio-aio"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "94970d564990c83f7431efebf40f81b4b0d36b4e362fae869081d952530937ff"
+dependencies = [
+ "mio",
+ "nix 0.29.0",
+ "pin-utils",
+]
+
+[[package]]
 name = "mockall"
 version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1306,6 +1331,7 @@ dependencies = [
  "cfg-if",
  "cfg_aliases 0.2.1",
  "libc",
+ "pin-utils",
 ]
 
 [[package]]

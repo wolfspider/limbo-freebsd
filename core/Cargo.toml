@@ -17,6 +17,10 @@ path = "lib.rs"
 default = ["fs"]
 fs = []
 
+[target.'cfg(target_os = "freebsd")'.dependencies]
+mio = { version = "0.8.11", features = ["os-poll"] }
+mio-aio = "0.9.0"
+
 [target.'cfg(target_os = "linux")'.dependencies]
 io-uring = "0.6.1"
 
